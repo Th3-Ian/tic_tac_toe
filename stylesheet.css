@@ -1,0 +1,82 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+:root {
+  --cell-size: 200px;
+  --marker-size: 180px;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  grid-gap: 10px;
+  justify-content: center;
+  align-content: center;
+  justify-items: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.cell {
+  width: var(--cell-size);
+  height: var(--cell-size);
+  border: 5px solid red;
+  border-radius: 10px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.cell.x::before,
+.cell.x::after,
+.board.x .cell:not(.x):not(.cir):hover::before,
+.board.x .cell:not(.x):not(.cir):hover::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 180px;
+  background-color: black;
+}
+
+.cell.x::before,
+.board.x .cell:not(.x):not(.cir):hover::before {
+  transform: rotate(45deg);
+}
+
+.cell.x::after,
+.board.x .cell:not(.x):not(.cir):hover::after {
+  transform: rotate(-45deg);
+}
+
+.board.x .cell:not(.x):not(.cir):hover::before,
+.board.x .cell:not(.x):not(.cir):hover::after {
+  background-color: rgb(179, 179, 179);
+}
+
+.cell.cir::before,
+.cell.cir::after,
+.board.cir .cell:not(.x):not(.cir):hover::before,
+.board.cir .cell:not(.x):not(.cir):hover::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  width: 125px;
+  height: 125px;
+  background-color: transparent;
+  border: 20px solid black;
+}
+
+.board.cir .cell:not(.x):not(.cir):hover::before,
+.board.cir .cell:not(.x):not(.cir):hover::after {
+  border-color: rgb(179, 179, 179);
+}
+
+.cell.x,
+.cell.cir {
+  cursor: not-allowed;
+}
