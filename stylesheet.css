@@ -80,3 +80,35 @@
 .cell.cir {
   cursor: not-allowed;
 }
+
+.win-page {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 8%;
+  left: 10%;
+  right: 10%;
+  bottom: 8%;
+  background-color: rgba(120, 120, 120, 0.8);
+  color: #e99e2d;
+  font-size: 86px;
+}
+
+.win-page button {
+  font-size: 40px;
+  background-color: white;
+  border: 3px solid black;
+  padding: 10px 25px;
+  border-radius: 10px;
+}
+
+.win-page button:hover {
+  background-color: #e99e2d;
+  color: white;
+}
+
+.win-page.show {
+  display: flex;
+}
